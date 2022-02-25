@@ -4,7 +4,7 @@ import './style.css';
 export default function App() {
   // Use State will used here
   const [todos, setTodos] = useState(['ALi']);
-  const [tasks, setTask] = useState('QalbeHabib Mudassar');
+  const [tasks, setTask] = useState('QalbeHabib');
 
   // Add Todo in The List
 

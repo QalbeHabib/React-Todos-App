@@ -59,6 +59,9 @@ transform: scale(.92);
   background-color: rgb(59, 145, 116);
   color: #000;
 }
+input{
+  text-align: center;
+}
 
 ul {
   list-style-type: number;
