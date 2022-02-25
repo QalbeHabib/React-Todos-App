@@ -68,7 +68,7 @@ export default function App() {
           {todos.map((item, idx) => {
             return (
               <div className="todos" key={idx}>
-                <li> {item} </li>
+                <li> ✔ {item} </li>
                 <button className="Del-btn" onClick={() => deleteTodo(idx)}>
                   X
                 </button>
