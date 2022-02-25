@@ -8,12 +8,10 @@ export default function App() {
   // console.log(tasks)
 
   function createTodo() {
-    
     setTodos((h) => {
       setTask('');
       return [...h, tasks];
     });
-   
   }
 
   function enterKey(e) {
@@ -44,7 +42,12 @@ export default function App() {
       <div className="todo-container">
         <ul>
           {todos.map((todo) => {
-            return <li> {todo} </li>;
+            return (
+              <div className="todos">
+                <li> {todo} </li>
+                <button className="Del-btn">X</button>
+              </div>
+            );
           })}
         </ul>
       </div>
