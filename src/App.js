@@ -2,17 +2,32 @@ import React, { useState } from 'react';
 import './style.css';
 
 export default function App() {
-  const [todos, setTodos] = useState(['habib', 'ali', 'hassan']);
+  const [todos, setTodos] = useState([]);
   const [tasks, setTask] = useState('QalbeHabib');
 
   // console.log(tasks)
 
   function createTodo() {
-    setTodos((h) => {
-      setTask('');
-      return [...h, tasks];
-    });
+    if (!tasks) {
+    } else {
+      setTodos((h) => {
+        setTask(''); // For Empty the input field
+        return [...h, tasks];
+      });
+    }
   }
+
+  const deleteTodo = (id) => {
+    setTodos((todos) =>
+      todos.filter((el, idx) => {
+        return idx != id;
+      })
+    );
+  };
+
+  const clearAllTodos = () => {
+    setTodos([]);
+  };
 
   function enterKey(e) {
     // console.log('Event :', e);
@@ -41,16 +56,21 @@ export default function App() {
 
       <div className="todo-container">
         <ul>
-          {todos.map((todo) => {
+          {todos.map((item, idx) => {
             return (
               <div className="todos">
-                <li> {todo} </li>
-                <button className="Del-btn">X</button>
+                <li> {item} </li>
+                <button className="Del-btn" onClick={() => deleteTodo(idx)}>
+                  X
+                </button>
               </div>
             );
           })}
         </ul>
       </div>
+      {/* <button className="btn" onClick={clearAllTodos}>
+        Clear All
+      </button> */}
     </div>
   );
 }

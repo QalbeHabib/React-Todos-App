@@ -44,6 +44,9 @@ p {
   margin: 0.3rem;
 }
 
+ul {
+  list-style-type: number;
+}
 /* .todo-container{
   background-color: aliceblue;
   width: 400px;
