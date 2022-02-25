@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import './style.css';
 
 export default function App() {
-  const [todos, setTodos] = useState([]);
-  const [tasks, setTask] = useState('QalbeHabib');
+  // Use State will used here
+  const [todos, setTodos] = useState(['ALi']);
+  const [tasks, setTask] = useState('QalbeHabib Mudassar');
 
-  // console.log(tasks)
+  // Add Todo in The List
 
   function createTodo() {
     if (!tasks) {
+      alert('Please Enter A Task');
     } else {
       setTodos((h) => {
         setTask(''); // For Empty the input field
@@ -16,6 +18,8 @@ export default function App() {
       });
     }
   }
+
+  // Delete ToDo
 
   const deleteTodo = (id) => {
     setTodos((todos) =>
@@ -25,9 +29,12 @@ export default function App() {
     );
   };
 
+  // Clear All the List
   const clearAllTodos = () => {
     setTodos([]);
   };
+
+  // Enter Key Function
 
   function enterKey(e) {
     // console.log('Event :', e);
@@ -36,6 +43,7 @@ export default function App() {
     }
   }
 
+  // MAin Layout is Here
   return (
     <div className="App-header">
       <h1>Todos App</h1>
@@ -43,6 +51,7 @@ export default function App() {
       <input
         className="iput"
         type="text"
+        // Here is the Input Value changing
         value={tasks}
         onChange={(e) => {
           setTask(e.target.value);
