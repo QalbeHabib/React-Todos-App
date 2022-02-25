@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import './style.css';
 
-function App() {
-  // useState Here
-  const [todos, setTodos] = useState(['Habib', 'ALi', 'Hassan']);
+export default function App() {
+  const [todos, setTodos] = useState(['habib', 'ali', 'hassan']);
+  const [tasks, setTask] = useState('QalbeHabib');
 
-  const [task, setTask] = useState('');
+  // console.log(tasks)
 
-  // Add Todo in the List
   function createTodo() {
-    setTask(''); // For Empty input
-
-    setTodos((oldtodo) => {
-      return [...oldtodo, task];
+    
+    setTodos((h) => {
+      setTask('');
+      return [...h, tasks];
     });
+   
   }
 
   function enterKey(e) {
-    // console.log('Event ', e);
+    // console.log('Event :', e);
     if (e.keyCode == 13) {
       createTodo();
     }
@@ -25,35 +25,29 @@ function App() {
 
   return (
     <div className="App-header">
+      <h1>Todos App</h1>
+
       <input
-        style={{ padding: '.5rem' }}
-        onKeyDown={enterKey}
+        className="iput"
         type="text"
-        value={task}
-        onChange={(event) => {
-          setTask(event.target.value);
+        value={tasks}
+        onChange={(e) => {
+          setTask(e.target.value);
         }}
+        onKeyDown={enterKey}
       />
 
-      <button
-        style={{
-          marginTop: '1rem',
-          padding: '.5rem .8rem',
-          fontWeight: 'bold',
-          cursor: 'pointer',
-        }}
-        onClick={createTodo}
-      >
+      <button className="btn" onClick={createTodo}>
         Add Todos
       </button>
 
-      <ul>
-        {todos.map((todo) => {
-          return <li>{todo}</li>;
-        })}
-      </ul>
+      <div className="todo-container">
+        <ul>
+          {todos.map((todo) => {
+            return <li> {todo} </li>;
+          })}
+        </ul>
+      </div>
     </div>
   );
 }
-
-export default App;
